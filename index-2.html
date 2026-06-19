@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow With Harini — Performance Marketing for Growing Businesses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #15110F;
+    --black-soft: #221C19;
+    --pink: #FFD9DD;
+    --pink-deep: #F7AEB8;
+    --pink-line: #FBC4CC;
+    --rose: #C9505F;
+    --cream: #FFF8F6;
+    --muted: #877C78;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  a { text-decoration: none; color: inherit; }
+  ::selection { background: var(--pink-deep); color: var(--black); }
+
+  .nav {
+    position: sticky; top: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 56px;
+    background: rgba(255,248,246,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--pink-line);
+  }
+  .nav .logo {
+    font-family: 'Fraunces', serif; font-weight: 600; font-size: 19px;
+    letter-spacing: -0.01em; display: flex; align-items: baseline; gap: 6px;
+  }
+  .nav .logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); display: inline-block; transform: translateY(-3px); }
+  .nav-cta {
+    background: var(--black); color: var(--cream);
+    padding: 11px 22px; border-radius: 100px; font-size: 14px; font-weight: 600;
+    transition: background .2s ease;
+  }
+  .nav-cta:hover { background: var(--rose); }
+
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 100px 56px 90px;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 60px; align-items: center;
+    max-width: 1280px; margin: 0 auto;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 26px;
+  }
+  .hero-eyebrow::before { content: ''; width: 22px; height: 1.5px; background: var(--rose); display: inline-block; }
+  .hero h1 {
+    font-size: clamp(38px, 4.6vw, 64px); line-height: 1.04; margin-bottom: 26px;
+    color: var(--black);
+  }
+  .hero h1 em { font-style: italic; color: var(--rose); font-weight: 500; }
+  .hero .sub {
+    font-size: 18px; line-height: 1.65; color: var(--muted); max-width: 480px; margin-bottom: 38px;
+  }
+  .hero-ctas { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--black); color: var(--cream);
+    padding: 17px 32px; border-radius: 100px; font-size: 15.5px; font-weight: 600;
+    border: none; cursor: pointer; transition: transform .18s ease, background .18s ease;
+  }
+  .btn-primary:hover { background: var(--rose); transform: translateY(-2px); }
+  .btn-primary svg { width: 16px; height: 16px; transition: transform .18s ease; }
+  .btn-primary:hover svg { transform: translateX(3px); }
+  .hero-wa {
+    font-size: 14px; color: var(--black); font-weight: 600; display: flex; align-items: center; gap: 8px;
+  }
+  .hero-wa .wa-dot { width: 8px; height: 8px; border-radius: 50%; background: #25D366; box-shadow: 0 0 0 3px rgba(37,211,102,.2); }
+
+  .hero-visual {
+    position: relative; aspect-ratio: 1/1.05;
+    background: var(--pink);
+    border-radius: 28px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-visual .ring {
+    position: absolute; border-radius: 50%; border: 1.5px solid rgba(21,17,15,0.14);
+  }
+  .hero-visual .ring.r1 { width: 86%; height: 86%; }
+  .hero-visual .ring.r2 { width: 64%; height: 64%; }
+  .hv-card {
+    position: relative; z-index: 2;
+    background: var(--black); color: var(--cream);
+    padding: 28px 26px; border-radius: 18px;
+    width: 78%;
+    box-shadow: 0 30px 60px -20px rgba(21,17,15,0.45);
+  }
+  .hv-card .hv-label { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--pink-deep); margin-bottom: 10px; font-weight: 600; }
+  .hv-card .hv-num { font-family: 'Fraunces', serif; font-size: 40px; font-weight: 600; margin-bottom: 4px; }
+  .hv-card .hv-sub { font-size: 13px; color: rgba(255,248,246,0.55); }
+  .hv-float {
+    position: absolute; background: var(--cream); border-radius: 14px;
+    padding: 14px 18px; box-shadow: 0 16px 32px -10px rgba(21,17,15,0.2);
+    font-size: 13px; font-weight: 700; z-index: 3;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .hv-float.f1 { top: 8%; right: 4%; }
+  .hv-float.f2 { bottom: 10%; left: 0; }
+  .hv-float .fdot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); }
+
+  .trust-strip {
+    border-top: 1px solid var(--pink-line); border-bottom: 1px solid var(--pink-line);
+    background: var(--white);
+    padding: 26px 56px;
+    display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
+  }
+  .trust-item { text-align: center; }
+  .trust-item .t-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--rose); }
+  .trust-item .t-label { font-size: 12.5px; color: var(--muted); margin-top: 2px; font-weight: 500; }
+
+  .section { padding: 100px 56px; max-width: 1280px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 16px;
+  }
+  .section h2 {
+    font-size: clamp(28px, 3.4vw, 44px); line-height: 1.12; color: var(--black); max-width: 700px;
+  }
+  .section .section-sub {
+    font-size: 16.5px; color: var(--muted); max-width: 560px; margin-top: 18px; line-height: 1.6;
+  }
+
+  .pain-section { background: var(--black); color: var(--cream); }
+  .pain-section .section-eyebrow { color: var(--pink-deep); }
+  .pain-section h2 { color: var(--cream); }
+  .pain-section .section-sub { color: rgba(255,248,246,0.55); }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    margin-top: 56px; background: rgba(255,248,246,0.1); border-radius: 18px; overflow: hidden;
+  }
+  .pain-cell {
+    background: var(--black-soft); padding: 36px 30px;
+    transition: background .25s ease;
+  }
+  .pain-cell:hover { background: #2A2220; }
+  .pain-cell .p-quote {
+    font-family: 'Fraunces', serif; font-size: 19px; font-style: italic; line-height: 1.45;
+    color: var(--cream); margin-bottom: 18px;
+  }
+  .pain-cell .p-tag {
+    font-size: 12px; font-weight: 600; color: var(--pink-deep); text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 56px;
+  }
+  .service-card {
+    background: var(--white); border: 1px solid var(--pink-line); border-radius: 20px;
+    padding: 36px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px); border-color: var(--rose);
+    box-shadow: 0 20px 40px -16px rgba(201,80,95,0.25);
+  }
+  .service-card .s-num {
+    font-family: 'Fraunces', serif; font-size: 14px; font-weight: 600; color: var(--pink-deep);
+    margin-bottom: 18px;
+  }
+  .service-card h3 { font-size: 21px; margin-bottom: 12px; color: var(--black); }
+  .service-card p { font-size: 14.5px; color: var(--muted); line-height: 1.6; margin-bottom: 18px; }
+  .service-card .s-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .s-tag {
+    font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 100px;
+    background: var(--pink); color: var(--black);
+  }
+
+  .approach-section { background: var(--pink); }
+  .approach-list { margin-top: 56px; display: flex; flex-direction: column; }
+  .approach-row {
+    display: grid; grid-template-columns: 70px 1fr 1fr; gap: 32px; align-items: center;
+    padding: 32px 0; border-bottom: 1px solid rgba(21,17,15,0.12);
+  }
+  .approach-row:last-child { border-bottom: none; }
+  .approach-row .a-num { font-family: 'Fraunces', serif; font-size: 30px; font-weight: 600; color: var(--rose); }
+  .approach-row h3 { font-size: 20px; color: var(--black); }
+  .approach-row p { font-size: 14.5px; color: rgba(21,17,15,0.62); line-height: 1.6; }
+
+  .pricing-card {
+    background: var(--black); color: var(--cream); border-radius: 24px;
+    padding: 56px; margin-top: 56px;
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center;
+  }
+  .pricing-left h3 { font-size: 26px; color: var(--cream); margin-bottom: 18px; line-height: 1.3; }
+  .pricing-left p { font-size: 15px; color: rgba(255,248,246,0.6); line-height: 1.7; margin-bottom: 14px; }
+  .pricing-right { background: var(--black-soft); border-radius: 16px; padding: 32px; }
+  .price-row {
+    display: flex; justify-content: space-between; padding: 14px 0;
+    border-bottom: 1px solid rgba(255,248,246,0.1); font-size: 14.5px;
+  }
+  .price-row:last-child { border-bottom: none; }
+  .price-row .pr-label { color: rgba(255,248,246,0.55); }
+  .price-row .pr-value { font-weight: 700; color: var(--pink-deep); }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 56px; align-items: start; }
+  .why-list { display: flex; flex-direction: column; gap: 28px; }
+  .why-item { display: flex; gap: 18px; }
+  .why-icon {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--pink);
+    display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0;
+  }
+  .why-text h4 { font-size: 16.5px; margin-bottom: 6px; font-weight: 700; color: var(--black); }
+  .why-text p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .quote-block {
+    background: var(--pink); border-radius: 20px; padding: 40px;
+    position: relative;
+  }
+  .quote-block .q-mark { font-family: 'Fraunces', serif; font-size: 60px; color: var(--rose); line-height: 0.5; margin-bottom: 18px; display: block; }
+  .quote-block .q-text { font-family: 'Fraunces', serif; font-size: 21px; line-height: 1.5; color: var(--black); font-style: italic; margin-bottom: 24px; }
+  .quote-block .q-author { font-size: 13.5px; font-weight: 700; color: var(--black); }
+  .quote-block .q-role { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  .final-cta {
+    background: var(--black); color: var(--cream); text-align: center;
+    padding: 110px 56px; position: relative; overflow: hidden;
+  }
+  .final-cta::before {
+    content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(247,174,184,0.12) 0%, transparent 70%);
+    top: -200px; left: 50%; transform: translateX(-50%);
+  }
+  .final-cta .fc-content { position: relative; max-width: 680px; margin: 0 auto; }
+  .final-cta .section-eyebrow { color: var(--pink-deep); justify-content: center; display: flex; }
+  .final-cta h2 { color: var(--cream); font-size: clamp(30px, 4vw, 48px); margin-bottom: 22px; }
+  .final-cta p { color: rgba(255,248,246,0.6); font-size: 16.5px; margin-bottom: 40px; line-height: 1.6; }
+  .final-cta .btn-primary { background: var(--rose); }
+  .final-cta .btn-primary:hover { background: var(--pink-deep); color: var(--black); }
+
+  .form-section { background: var(--pink); padding: 100px 56px; }
+  .form-shell {
+    max-width: 760px; margin: 0 auto; background: var(--white);
+    border-radius: 26px; padding: 56px; box-shadow: 0 40px 80px -30px rgba(21,17,15,0.2);
+  }
+  .form-shell .fs-header { text-align: center; margin-bottom: 40px; }
+  .form-shell h2 { font-size: clamp(24px, 3vw, 32px); color: var(--black); margin-bottom: 12px; }
+  .form-shell .fs-sub { font-size: 15px; color: var(--muted); }
+
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .field { display: flex; flex-direction: column; gap: 7px; }
+  .field:not(.field-row .field) { margin-bottom: 18px; }
+  .field label { font-size: 12.5px; font-weight: 700; color: var(--black); text-transform: uppercase; letter-spacing: .04em; }
+  .field input, .field select, .field textarea {
+    padding: 14px 16px; border: 1.5px solid var(--pink-line); border-radius: 10px;
+    font-size: 14.5px; font-family: 'Inter', sans-serif; color: var(--black);
+    background: var(--cream); outline: none; transition: border-color .15s ease;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--rose); background: var(--white); }
+  .field textarea { resize: vertical; min-height: 70px; }
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23877C78' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 16px center;
+  }
+
+  .btn-submit {
+    width: 100%; padding: 18px; background: var(--black); color: var(--cream);
+    font-size: 16px; font-weight: 700; border: none; border-radius: 12px; cursor: pointer;
+    margin-top: 10px; transition: background .2s ease, transform .15s ease;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-submit:hover { background: var(--rose); transform: translateY(-2px); }
+  .btn-submit:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+  .form-note { font-size: 12px; color: var(--muted); margin-top: 16px; text-align: center; line-height: 1.5; }
+  .form-error { background: #FDECEC; border: 1px solid #F0AFAF; color: #B23B3B; padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 18px; }
+
+  footer {
+    background: var(--black); color: rgba(255,248,246,0.4);
+    padding: 36px 56px; text-align: center; font-size: 13px;
+    border-top: 1px solid rgba(255,248,246,0.08);
+  }
+  footer a { color: var(--pink-deep); font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 60px 24px 50px; gap: 40px; }
+    .hero-visual { max-width: 360px; margin: 0 auto; }
+    .nav { padding: 18px 24px; }
+    .section { padding: 64px 24px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .approach-row { grid-template-columns: 50px 1fr; }
+    .approach-row > p { grid-column: 2; }
+    .pricing-card { grid-template-columns: 1fr; padding: 32px; }
+    .why-grid { grid-template-columns: 1fr; gap: 36px; }
+    .form-section { padding: 60px 20px; }
+    .form-shell { padding: 32px 24px; }
+    .field-row { grid-template-columns: 1fr; gap: 0; }
+    .trust-strip { gap: 28px; padding: 24px; }
+    .final-cta { padding: 70px 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--rose); outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="logo">Grow With Harini<span class="dot"></span></div>
+  <a href="#audit-form" class="nav-cta">Get Free Audit</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Performance Marketing, Done Right</div>
+    <h1>Your business deserves leads that <em>actually show up.</em></h1>
+    <p class="sub">Grow With Harini runs Google, Meta &amp; LinkedIn ads built around your business — not a generic template. Clear strategy, honest reporting, and a budget that fits where you are right now.</p>
+    <div class="hero-ctas">
+      <a href="#audit-form" class="btn-primary">
+        Book a Free Strategy Call
+        <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://wa.me/918978446734" class="hero-wa" target="_blank">
+        <span class="wa-dot"></span> WhatsApp 89784 46734
+      </a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="ring r1"></div>
+    <div class="ring r2"></div>
+    <div class="hv-card">
+      <div class="hv-label">This Month</div>
+      <div class="hv-num">+42</div>
+      <div class="hv-sub">qualified leads delivered</div>
+    </div>
+    <div class="hv-float f1"><span class="fdot"></span> CPL ↓ 28%</div>
+    <div class="hv-float f2"><span class="fdot"></span> Live Tracking</div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-item"><div class="t-num">Google · Meta · LinkedIn</div><div class="t-label">Certified Ad Platforms</div></div>
+  <div class="trust-item"><div class="t-num">Honest Reporting</div><div class="t-label">Weekly Performance Updates</div></div>
+  <div class="trust-item"><div class="t-num">No Lock-In</div><div class="t-label">Month-to-Month Flexibility</div></div>
+</div>
+
+<section class="pain-section section">
+  <div class="section-eyebrow">Sound Familiar?</div>
+  <h2>Most small business owners aren't short on effort. They're short on a system.</h2>
+  <p class="section-sub">You don't need a massive budget to get started. You need someone who treats your ad spend like it's their own money.</p>
+  <div class="pain-grid">
+    <div class="pain-cell">
+      <div class="p-quote">"I posted on Instagram for months. Got likes, not customers."</div>
+      <div class="p-tag">Organic alone isn't enough</div>
+    </div>
+    <div class="pain-cell">
+      <div class="p-quote">"I boosted a post once and have no idea if it actually worked."</div>
+      <div class="p-tag">No tracking, no clarity</div>
+    </div>
+    <div class="pain-cell">
+      <div class="p-quote">"I don't have a huge budget — so I assumed ads weren't for me yet."</div>
+      <div class="p-tag">Smart budgets work too</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-eyebrow">What I Do</div>
+  <h2>Hands-on paid advertising, built around your business — not a one-size template.</h2>
+  <p class="section-sub">Every campaign starts with understanding who you're actually trying to reach, then builds the ad strategy around that.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="s-num">01</div>
+      <h3>Google Ads</h3>
+      <p>Search campaigns that show up exactly when your ideal customer is looking for what you offer — not before, not after.</p>
+      <div class="s-tags"><span class="s-tag">Search Ads</span><span class="s-tag">Keyword Strategy</span><span class="s-tag">Local Targeting</span></div>
+    </div>
+    <div class="service-card">
+      <div class="s-num">02</div>
+      <h3>Meta Ads</h3>
+      <p>Facebook &amp; Instagram campaigns designed to stop the scroll — built around real customer pain points, not stock templates.</p>
+      <div class="s-tags"><span class="s-tag">Facebook</span><span class="s-tag">Instagram</span><span class="s-tag">Retargeting</span></div>
+    </div>
+    <div class="service-card">
+      <div class="s-num">03</div>
+      <h3>LinkedIn Ads</h3>
+      <p>For B2B businesses — reach decision-makers directly with precise job-title and industry targeting.</p>
+      <div class="s-tags"><span class="s-tag">B2B Targeting</span><span class="s-tag">Lead Forms</span><span class="s-tag">Professional Audiences</span></div>
+    </div>
+    <div class="service-card">
+      <div class="s-num">04</div>
+      <h3>Tracking &amp; Reporting</h3>
+      <p>Every rupee is tracked. You'll always know what's working, what isn't, and exactly why — in plain language.</p>
+      <div class="s-tags"><span class="s-tag">GA4 Setup</span><span class="s-tag">Weekly Reports</span><span class="s-tag">Clear Dashboards</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="approach-section">
+  <div class="section">
+    <div class="section-eyebrow">How We'll Work Together</div>
+    <h2>A simple, honest process — no jargon, no confusing reports.</h2>
+    <div class="approach-list">
+      <div class="approach-row">
+        <div class="a-num">01</div>
+        <h3>Free Strategy Call</h3>
+        <p>We talk about your business, your customers, and what "more leads" actually looks like for you. No pitch — just a real conversation.</p>
+      </div>
+      <div class="approach-row">
+        <div class="a-num">02</div>
+        <h3>Simple Ad Plan</h3>
+        <p>I build a campaign plan around a budget that fits where your business is today — not where a "perfect client" would be.</p>
+      </div>
+      <div class="approach-row">
+        <div class="a-num">03</div>
+        <h3>Launch &amp; Track</h3>
+        <p>Ads go live, tracking is set up properly from day one, and you get full visibility into every lead that comes in.</p>
+      </div>
+      <div class="approach-row">
+        <div class="a-num">04</div>
+        <h3>Improve Weekly</h3>
+        <p>I review performance every week and adjust — so your budget keeps working harder, not just spending faster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-eyebrow">Straight Talk on Budget</div>
+  <h2>You don't need a huge budget to start. You need the right one.</h2>
+  <div class="pricing-card">
+    <div class="pricing-left">
+      <h3>Built for growing businesses, not enterprise budgets.</h3>
+      <p>I work with founders who are just getting serious about paid ads — which means I build plans that respect what you can actually spend right now, and scale them up only once they're working.</p>
+      <p>No inflated retainers. No "minimum ₹5L ad spend" requirements. Just a clear, fair starting point.</p>
+    </div>
+    <div class="pricing-right">
+      <div class="price-row"><span class="pr-label">Starting Ad Spend</span><span class="pr-value">₹10,000 – ₹30,000/mo</span></div>
+      <div class="price-row"><span class="pr-label">Management Fee</span><span class="pr-value">Flat &amp; Transparent</span></div>
+      <div class="price-row"><span class="pr-label">Contract</span><span class="pr-value">Month-to-Month</span></div>
+      <div class="price-row"><span class="pr-label">Setup Time</span><span class="pr-value">3–5 Business Days</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-eyebrow">Why Work With Me</div>
+  <h2>You get direct access — not a junior account manager and a 40-page report.</h2>
+  <div class="why-grid">
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-icon">🎯</div>
+        <div class="why-text">
+          <h4>You speak to me directly</h4>
+          <p>No account managers, no relay chains. Every question goes straight to the person running your campaigns.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">📊</div>
+        <div class="why-text">
+          <h4>Reporting you can actually understand</h4>
+          <p>No jargon-filled dashboards. You'll know exactly how many leads came in and what they cost — every week.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🤝</div>
+        <div class="why-text">
+          <h4>Budgets that respect your stage</h4>
+          <p>I work with businesses at the size they're at today, and grow the budget only as results justify it.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💬</div>
+        <div class="why-text">
+          <h4>Always reachable</h4>
+          <p>Questions don't wait for a Monday call. WhatsApp me directly, anytime.</p>
+        </div>
+      </div>
+    </div>
+    <div class="quote-block">
+      <span class="q-mark">"</span>
+      <p class="q-text">I didn't have a huge budget to begin with — but the plan was built around what I actually had. Within weeks I had real enquiries coming in, not just likes.</p>
+      <div class="q-author">A Growing Business Owner</div>
+      <div class="q-role">Early Client, Hyderabad</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="fc-content">
+    <div class="section-eyebrow">Ready When You Are</div>
+    <h2>Let's build a system that brings leads — not just likes.</h2>
+    <p>One free strategy call. No pressure, no jargon — just an honest look at what paid ads could do for your business.</p>
+    <a href="#audit-form" class="btn-primary">
+      Book My Free Strategy Call
+      <svg viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<section class="form-section" id="audit-form">
+  <div class="form-shell">
+    <div class="fs-header">
+      <h2>Tell me about your business</h2>
+      <p class="fs-sub">Takes 2 minutes. I personally read every submission.</p>
+    </div>
+    <div id="form-status"></div>
+    <div id="form-wrap">
+      <div class="field-row">
+        <div class="field">
+          <label for="f_name">Full Name *</label>
+          <input type="text" id="f_name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="f_phone">WhatsApp / Phone *</label>
+          <input type="tel" id="f_phone" placeholder="+91 98765 43210" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f_email">Email *</label>
+          <input type="email" id="f_email" placeholder="you@business.com" required>
+        </div>
+        <div class="field">
+          <label for="f_biz">Business Name *</label>
+          <input type="text" id="f_biz" placeholder="Your business name" required>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f_type">Business Type *</label>
+          <select id="f_type" required>
+            <option value="">— Select —</option>
+            <option>Local / Retail Business</option>
+            <option>Service Business</option>
+            <option>E-commerce</option>
+            <option>Real Estate</option>
+            <option>Coaching / Consulting</option>
+            <option>Restaurant / Food</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f_budget">Monthly Ad Budget in Mind *</label>
+          <select id="f_budget" required>
+            <option value="">— Select —</option>
+            <option>Below ₹10,000</option>
+            <option>₹10,000 – ₹30,000</option>
+            <option>₹30,000 – ₹75,000</option>
+            <option>Above ₹75,000</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="f_goal">What are you hoping ads will help you with? *</label>
+        <textarea id="f_goal" rows="3" placeholder="E.g. I want more enquiries for my business every month..."></textarea>
+      </div>
+      <button class="btn-submit" id="submit-btn" onclick="submitAuditForm()">
+        <span id="btn-text">Submit & Book My Free Call →</span>
+      </button>
+      <p class="form-note">By submitting, you agree to be contacted by Grow With Harini. Your information is never shared.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Grow With Harini · WhatsApp <a href="https://wa.me/918978446734">89784 46734</a>
+</footer>
+
+<script>
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5xfhetl36wddo7rrchbLpZYZPO7sw46GJuxnKls-xLm4T0YAL3LHzILvL5gW2ec-LUg/exec";
+
+async function submitAuditForm() {
+  const btn = document.getElementById("submit-btn");
+  const btnText = document.getElementById("btn-text");
+  const statusDiv = document.getElementById("form-status");
+
+  const name    = document.getElementById("f_name").value.trim();
+  const phone   = document.getElementById("f_phone").value.trim();
+  const email   = document.getElementById("f_email").value.trim();
+  const biz     = document.getElementById("f_biz").value.trim();
+  const bizType = document.getElementById("f_type").value;
+  const budget  = document.getElementById("f_budget").value;
+  const goal    = document.getElementById("f_goal").value.trim();
+
+  if (!name || !phone || !email || !biz || !bizType || !budget || !goal) {
+    statusDiv.innerHTML = '<div class="form-error">Please fill in all required fields before submitting.</div>';
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    statusDiv.innerHTML = '<div class="form-error">Please enter a valid email address.</div>';
+    return;
+  }
+
+  btn.disabled = true;
+  btnText.textContent = "Submitting...";
+  statusDiv.innerHTML = "";
+
+  const payload = {
+    name, email, phone, biz, bizType,
+    revenue: budget,
+    goal, tried: "",
+    submittedAt: new Date().toLocaleString("en-IN", {timeZone:"Asia/Kolkata"}),
+    source: document.referrer || "Direct",
+    pageUrl: window.location.href
+  };
+
+  try {
+    fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+  } catch (err) {}
+
+  setTimeout(() => {
+    window.location.href = "thank-you.html";
+  }, 800);
+}
+</script>
+
+</body>
+</html>
