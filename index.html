@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><!-- Google Tag Manager -->
+<head>
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -53,8 +54,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* Nav */
   .nav{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:2px solid var(--ink);}
   .nav-inner{max-width:1120px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-  .logo{font-family:var(--font-display);font-weight:600;font-size:1.05rem;}
+  .logo{font-family:var(--font-display);font-weight:600;font-size:1.05rem;text-decoration:none;}
   .logo strong{font-weight:700;}
+  .nav-inner{flex-wrap:wrap;}
+  .nav-links{display:flex;align-items:center;gap:22px;}
+  .nav-links a{font-family:var(--font-mono);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.04em;text-decoration:none;}
   .nav-cta{font-family:var(--font-mono);font-weight:600;font-size:0.82rem;text-decoration:none;background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:6px;letter-spacing:0.02em;}
 
   /* Hero */
@@ -160,6 +164,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   footer{background:var(--ink);color:rgba(243,244,238,0.85);padding:40px 0;text-align:center;font-size:0.88rem;}
   footer p{margin:0 0 6px 0;}
   footer a{text-decoration:underline;}
+  .footer-links{display:flex;gap:18px;justify-content:center;margin:0 0 14px 0;flex-wrap:wrap;}
+  .footer-links a{text-decoration:underline;}
 
   /* Float */
   .float-cta{position:fixed;right:22px;bottom:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:var(--lime);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);text-decoration:none;color:var(--ink);}
@@ -168,11 +174,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBKCB8XR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <header class="nav">
   <div class="nav-inner">
-    <span class="logo">Grow with <strong>Harini Shankar</strong></span>
-    <a class="nav-cta" href="tel:+918978540150">Call 89785 40150</a>
+    <a class="logo" href="index.html">Grow with <strong>Harini Shankar</strong></a>
+    <div class="nav-links">
+      <a href="about.html">About Us</a>
+      <a class="nav-cta" href="tel:+918978540150">Call 89785 40150</a>
+    </div>
   </div>
 </header>
 
@@ -388,6 +401,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </section>
 
 <footer>
+  <div class="footer-links">
+    <a href="about.html">About Us</a>
+    <a href="privacy.html">Privacy Policy</a>
+  </div>
   <p>Grow with Harini Shankar — Performance Marketing</p>
   <p>Google Ads · Meta Ads · LinkedIn Ads</p>
   <p><a href="tel:+918978540150">89785 40150</a></p>
@@ -463,9 +480,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   });
 })();
 </script>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBKCB8XR"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
 </body>
 </html>
