@@ -12,6 +12,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grow with Harini Shankar — Performance Marketing</title>
 <meta name="description" content="Google Ads, Meta Ads & LinkedIn Ads for SMBs, coaches, e-commerce, SaaS and service businesses. Predictable leads, no bloated budgets required.">
+<link rel="canonical" href="https://harini-donikena123-grow-with-harini.vercel.app/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grow with Harini Shankar — Performance Marketing">
+<meta property="og:description" content="Google Ads, Meta Ads & LinkedIn Ads for SMBs, coaches, e-commerce, SaaS and service businesses. Predictable leads, no bloated budgets required.">
+<meta property="og:url" content="https://harini-donikena123-grow-with-harini.vercel.app/">
+<meta property="og:image" content="https://harini-donikena123-grow-with-harini.vercel.app/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -126,6 +134,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .trust-list li::before{content:"";position:absolute;left:0;top:8px;width:11px;height:11px;background:var(--lime);border:2px solid var(--ink);border-radius:2px;}
   @media(max-width:700px){.trust-list{grid-template-columns:1fr;}}
 
+  /* Results / Social proof */
+  .results h2{font-size:clamp(1.6rem,4vw,2.3rem);max-width:20ch;}
+  .stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px;}
+  .stat-card{background:var(--paper-card);border:1.5px solid var(--line);border-radius:10px;padding:28px 24px;text-align:center;}
+  .stat-card .stat-num{font-family:var(--font-mono);font-weight:600;font-size:2rem;color:var(--blue);display:block;margin-bottom:8px;}
+  .stat-card p{font-size:0.9rem;color:rgba(11,11,20,0.7);margin-bottom:0;}
+  @media(max-width:860px){.stat-grid{grid-template-columns:1fr;}}
+  .testimonial-placeholder{margin-top:40px;border:1.5px dashed var(--line);border-radius:10px;padding:28px 24px;font-size:0.92rem;color:rgba(11,11,20,0.55);text-align:center;}
+
   /* FAQ */
   .faq h2{font-size:clamp(1.6rem,4vw,2.3rem);max-width:22ch;}
   .faq-list{margin-top:32px;}
@@ -168,7 +185,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .footer-links a{text-decoration:underline;}
 
   /* Float */
-  .float-cta{position:fixed;right:22px;bottom:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:var(--lime);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);text-decoration:none;color:var(--ink);}
+  .float-cta{position:fixed;right:22px;bottom:22px;z-index:80;width:58px;height:58px;border-radius:50%;background:var(--lime);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:4px 4px 0 var(--ink);text-decoration:none;color:var(--ink);transition:transform 0.15s ease,box-shadow 0.15s ease,opacity 0.25s ease;}
   .float-cta svg{width:26px;height:26px;}
   .float-cta:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink);}
 </style>
@@ -204,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-track">
+  <div class="ticker-track" aria-hidden="true">
     <span>PREDICTABLE LEADS</span><span class="dot">•</span>
     <span>NO DISAPPEARING ACT</span><span class="dot">•</span>
     <span>MINIMUM BUDGET, MAXIMUM CLARITY</span><span class="dot">•</span>
@@ -302,6 +319,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<!-- RESULTS / SOCIAL PROOF -->
+<!-- TODO: Replace placeholder numbers and testimonial with real client results before going live -->
+<section class="results">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-dark">Results</p>
+    <h2>Numbers, not just promises.</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><span class="stat-num">—</span><p>Average cost per lead reduction</p></div>
+      <div class="stat-card"><span class="stat-num">—</span><p>Active client campaigns managed</p></div>
+      <div class="stat-card"><span class="stat-num">—</span><p>Years running paid campaigns</p></div>
+    </div>
+    <div class="testimonial-placeholder">
+      Client testimonial or case study goes here — replace this block with a real quote, name, and business type once available.
+    </div>
+  </div>
+</section>
+
 <!-- TRUST -->
 <section class="trust">
   <div class="wrap">
@@ -345,7 +379,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <div class="form-row">
         <label for="f-phone">Phone / WhatsApp *</label>
-        <input type="tel" id="f-phone" placeholder="Your number">
+        <input type="tel" id="f-phone" placeholder="Your number" inputmode="tel" autocomplete="tel">
       </div>
       <div class="form-row">
         <label for="f-business">Business type</label>
@@ -378,7 +412,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <textarea id="f-message" rows="3" placeholder="Tell me a bit about your goal..."></textarea>
       </div>
 
-      <div id="formError" class="form-error"></div>
+      <div id="formError" class="form-error" role="alert" aria-live="polite"></div>
       <button type="button" id="submitBtn">Get my free ads audit</button>
       <p class="form-note">Your details go straight to Harini. No spam, ever.</p>
     </div>
@@ -442,6 +476,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     if (!name) { showError('Please enter your full name.'); return; }
     if (!phone) { showError('Please enter your phone / WhatsApp number.'); return; }
+    var phoneDigits = phone.replace(/[^0-9]/g, '');
+    if (phoneDigits.length < 10) { showError('Please enter a valid phone / WhatsApp number (at least 10 digits).'); return; }
 
     btn.textContent = 'Sending...';
     btn.disabled = true;
@@ -456,6 +492,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       message: message
     });
 
+    // Guard against a hung request (e.g. Apps Script slow to respond) so the
+    // button never gets stuck disabled forever.
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function () { controller.abort(); }, 12000);
+
     // no-cors is required because Google Apps Script doesn't send the
     // CORS headers that would let us read the response — but the POST
     // itself goes through correctly and the script still runs on Google's end.
@@ -463,21 +504,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString()
+      body: body.toString(),
+      signal: controller.signal
     })
     .then(function () {
+      clearTimeout(timeoutId);
       // With no-cors we always get an opaque response (type:"opaque"),
       // so we can't read the body — but if we got here, the request
       // reached Google without a network error, which is success.
       window.location.href = 'thankyou.html';
     })
     .catch(function (err) {
+      clearTimeout(timeoutId);
       btn.textContent = 'Get my free ads audit';
       btn.disabled = false;
-      showError('Something went wrong. Please try again or call 89785 40150 directly.');
+      if (err && err.name === 'AbortError') {
+        showError('This is taking longer than expected. Please try again or call 89785 40150 directly.');
+      } else {
+        showError('Something went wrong. Please try again or call 89785 40150 directly.');
+      }
       console.error('Form error:', err);
     });
   });
+
+  // Hide the floating WhatsApp button while the final CTA (which already
+  // offers WhatsApp/Call) is in view, so the two don't compete visually.
+  var floatBtn = document.querySelector('.float-cta');
+  var finalCta = document.querySelector('.final-cta');
+  if (floatBtn && finalCta && 'IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        floatBtn.style.opacity = entry.isIntersecting ? '0' : '1';
+        floatBtn.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+      });
+    }, { threshold: 0.3 });
+    observer.observe(finalCta);
+  }
 })();
 </script>
 
